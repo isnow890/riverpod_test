@@ -10,6 +10,7 @@ class StateProviderScreen extends ConsumerWidget {
   //WidgetRef 추가됨
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    //빌드 바로 밑에 watch 사용하는 경우가 대다수임.
     final provider = ref.watch(numberProvider);
     return DefaultLayout(
         title: 'StateProviderScreen',
@@ -24,12 +25,25 @@ class StateProviderScreen extends ConsumerWidget {
               ElevatedButton(
                 onPressed: () {
                   //값 업데이트
-                  ref
-                      .read(numberProvider.notifier)
+                  ref.read(numberProvider.notifier)
                       .update((state) => state + 1);
                 },
                 child: Text('UP'),
               ),
+
+              ElevatedButton(
+                onPressed: () {
+                  //값 업데이트할 수 있는 두번째 방법
+                  ref.read(numberProvider.notifier).state = ref.read(numberProvider.notifier).state-1;
+
+                  // ref.read(numberProvider.notifier)
+                  //     .update((state) => state - 1);
+
+
+                },
+                child: Text('DOWN'),
+              ),
+
               ElevatedButton(
                 onPressed: () {
                   //값 업데이트
