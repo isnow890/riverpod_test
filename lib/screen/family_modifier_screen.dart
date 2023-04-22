@@ -7,13 +7,18 @@ class FamilyModifierScreen extends ConsumerWidget {
   const FamilyModifierScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context,WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     //future provider와 달리 생성자로 넣어야함.
-    final state = ref.watch(familyModifierProvider(3));
-    return  DefaultLayout(
+    final state = ref.watch(familyModifierProvider(5));
+    return DefaultLayout(
       title: 'FamilyModifierScreen',
-      body: Column(
-        children: [],
+      body: Center(
+        child:
+          state.when(
+              data: (data) => Text(data.toString()),
+              error: (err, stack) => Text(err.toString()),
+              loading: () => CircularProgressIndicator(),
+        ),
       ),
     );
   }
