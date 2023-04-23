@@ -51,3 +51,25 @@ final _testFamilyProvider = Provider.family<int,Parameter>((ref,parameter) => pa
 int gStateMultiply(GStateMultiplyRef ref, {required int number1, required int number2}){
   return number1 * number2;
 }
+
+//StateNotifier
+@riverpod
+//_$클래스명 넣는건 패턴임.
+class GStateNotifier extends _$GStateNotifier{
+
+  //build 함수 무조건 Override 해줘야함
+  //초기값 무조건 지정해야함.
+  @override
+  int build(){
+    return 0;
+  }
+
+  increment(){
+    state ++;
+  }
+  decrement(){
+    state --;
+  }
+
+
+}
