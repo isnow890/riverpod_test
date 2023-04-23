@@ -64,11 +64,21 @@ class CodeGenerationScreen extends ConsumerWidget {
                     ref.read(gStateNotifierProvider.notifier).increment();
                   },
                   child: Text('Increment')),
-              ElevatedButton(onPressed: () {
-                ref.read(gStateNotifierProvider.notifier).decrement();
-              }, child: Text('Decrement')),
+              ElevatedButton(
+                  onPressed: () {
+                    ref.read(gStateNotifierProvider.notifier).decrement();
+                  },
+                  child: Text('Decrement')),
             ],
-          )
+          ),
+          //invalidate()
+          //유효하지 않게 하다
+          //초기화 시키는 기능임.
+          ElevatedButton(
+              onPressed: () {
+                ref.invalidate(gStateNotifierProvider);
+              },
+              child: Text('InValidate'))
         ],
       ),
     );
