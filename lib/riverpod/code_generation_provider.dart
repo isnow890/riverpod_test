@@ -19,7 +19,20 @@ String gState(GStateRef ref){
 }
 //위와 같이 메소드 생성하고 flutter pub run build_runner build 실행하면 코드 제너레이션 생성됨.
 
+@riverpod
+Future<int> gStateFuture(GStateFutureRef ref) async{
+  await Future.delayed(Duration(seconds: 3));
+  return 10;
+}
 
+//Auto Dispose 옵션 끄기
+@Riverpod(
+  keepAlive: true,
+)
+Future<int> gStateFuture2(GStateFuture2Ref ref) async{
+  await Future.delayed(Duration(seconds: 3));
+  return 10;
+}
 
 
 
