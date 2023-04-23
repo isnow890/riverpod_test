@@ -21,7 +21,7 @@ class Logger extends ProviderObserver{
 
   //Provider가 삭제 되었을때
   @override
-  void didDisposeProvider(ProviderBase<Object?> provider, ProviderContainer container) {
+  void didDisposeProvider(ProviderBase<Object?> provider,  ProviderContainer container) {
     print('[Provider Disposed] provider : $provider');
     // TODO: implement didDisposeProvider
     super.didDisposeProvider(provider, container);
